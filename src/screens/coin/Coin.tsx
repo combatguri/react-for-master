@@ -22,9 +22,12 @@ import {
   CoinTabs,
   CoinTitle,
 } from "./Style";
-import { IoCaretBack } from "react-icons/io5";
 import styled from "styled-components";
 import { theme } from "../../themes/theme";
+
+// icons
+import { IoCaretBack } from "react-icons/io5";
+import { MdOutlineArrowRightAlt } from "react-icons/md";
 
 interface ICoinRouteParams {
   [key: string]: string | undefined;
@@ -135,12 +138,12 @@ function Coin() {
           <CoinTabs>
             <CoinTab $isActive={chartMatch !== null}>
               <Link to={`/coin/${coinId}/chart`} state={{ coinData: data }}>
-                Chart
+                Chart <MdOutlineArrowRightAlt />
               </Link>
             </CoinTab>
             <CoinTab $isActive={priceMatch !== null}>
               <Link to={`/coin/${coinId}/price`} state={{ coinData: data }}>
-                Price
+                Price <MdOutlineArrowRightAlt />
               </Link>
             </CoinTab>
           </CoinTabs>
