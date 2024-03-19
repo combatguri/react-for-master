@@ -14,6 +14,7 @@ import Loading from "../../components/Loading";
 
 import { useQuery } from "react-query";
 import Api from "../../api";
+import { ICoins } from "./Interface";
 
 const Container = styled.div`
   display: flex;
@@ -52,37 +53,24 @@ const CoinWrapper = styled.div`
   }
 `;
 
-interface ICoin {
-  id: string;
-  symbol: string;
-  name: string;
-  image: string;
-  current_price: number;
-  market_cap: number;
-  market_cap_rank: number;
-  fully_diluted_valuation: number;
-  total_volume: number;
-  high_24h: number;
-  low_24h: number;
-  price_change_24h: number;
-  price_change_percentage_24h: number;
-  market_cap_change_24h: number;
-  market_cap_change_percentage_24h: number;
-  circulating_supply: number;
-  total_supply: number;
-  max_supply: number;
-  ath: number;
-  ath_change_percentage: number;
-  ath_date: string;
-  atl: number;
-  atl_change_percentage: number;
-  atl_date: string;
-  roi?: any;
-  last_updated: string;
-}
+const ImgWrapper = styled.div`
+  padding: 1em 0;
+  > span {
+    display: inline-block;
+    width: 30%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+`;
 
 function Coins() {
-  const { isLoading, data } = useQuery<ICoin[]>(
+  const { isLoading, data } = useQuery<ICoins[]>(
     "allCoins",
     Api.coins.fetchCoinList
   );
@@ -90,6 +78,14 @@ function Coins() {
   return (
     <Container>
       <h2>코인</h2>
+      <ImgWrapper>
+        <span>
+          <img
+            src="https://static.coingecko.com/s/coingecko-branding-guide-8447de673439420efa0ab1e0e03a1f8b0137270fbc9c0b7c086ee284bd417fa1.png"
+            alt=""
+          />
+        </span>
+      </ImgWrapper>
 
       <CoinWrapper>
         {isLoading ? (
