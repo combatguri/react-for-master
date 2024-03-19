@@ -1,3 +1,7 @@
+/**
+ * 스타일드 컴포넌트 ts 인터페이스 설정
+ */
+
 import styled from "styled-components";
 
 interface styledPropsInterface {
@@ -16,17 +20,17 @@ const Box = styled.div<styledPropsInterface>`
   background-color: ${(props) => props.$bgColor};
 `;
 
-const Circle = styled(Box)`
-  border-radius: 50%;
-`;
+// const Circle = styled(Box)`
+//   border-radius: 50%;
+// `;
 
-const Input = styled.input`
-  background-color: red;
-`;
+// const Input = styled.input`
+//   background-color: red;
+// `;
 
-const InputAttrs = styled.input.attrs({ required: true, minLength: 20 })`
-  background-color: blue;
-`;
+// const InputAttrs = styled.input.attrs({ required: true, minLength: 20 })`
+//   background-color: blue;
+// `;
 
 // const InputAttrsProps = styled.input.attrs<styledPropsInterface>(
 //   (props): styledPropsInterface => ({

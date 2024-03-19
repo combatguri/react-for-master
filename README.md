@@ -1,46 +1,235 @@
-# Getting Started with Create React App
+# [React Router](https://reactrouter.com/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [RouterProvider](#routerprovider)
+- [createBrowserRouter](#createbrowserrouter)
+- [Route](#route)
+  - [errorElement](#errorelement)
+- [useNavigate | Link](#usenavigate--link)
+- [useParams](#useparams)
+- [Outlet](#outlet)
+- [useOutletContext](#useoutletcontext)
+- [useSearchParams](#usesearchparams)
+  - searchParams
+    - get(key)
+    - getAll(key)
+    - has(key)
+    - delete(key)
+    - set(key, value)
+    - toString()
+  - setSearchParams
 
-## Available Scripts
+## RouterProvider
 
-In the project directory, you can run:
+기존 Routes대신 router파일을 사용가능 하게 해줌
 
-### `npm start`
+```javascript
+<Routes>
+  <Route path="" element="<jsx/>" />
+</Routes>
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```javascript
+import { RouterProvider } from "react-router-dom";
+import router from "...";
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+root.render(
+  <ThemeProvider theme={theme}>
+    <RouterProvider router={router} />
+  </ThemeProvider>
+);
+```
 
-### `npm test`
+## createBrowserRouter
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Object형식으로 라우트를 설정 할 수 있어 편함
 
-### `npm run build`
+```javascript
+import { createBrowserRouter } from "react-router-dom";
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      children: [
+        {
+          path: "",
+          element: <Home />,
+        },
+        {
+          path: "about",
+          element: <About />,
+        },
+      ],
+      errorElement: <NotFound />,
+    },
+    {...},
+  ],
+  { basename: process.env.PUBLIC_URL }
+);
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Route
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```javascript
 
-### `npm run eject`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### errorElement
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```javascript
+import NotFound from "..";
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+{
+  errorElement: <NotFound />,
+}
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## useNavigate | Link
 
-## Learn More
+Link사용과 함수 링크 이동
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```javascript
+import { Link, useNavigate } from "react-router-dom";
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+const navigate = useNavigate();
+const goToAbout = () => {
+  navigate("/about");
+};
+
+return (
+  <Link to="/">HOME</Link>
+  <span onClick={goToAbout}>ABOUT</span>
+)
+```
+
+## useParams
+
+get params
+
+```javascript
+const params = useParams();
+```
+
+## Outlet
+
+render child components (like 'Dynamic components' from vue.js)
+
+```javascript
+// router.tsx
+createBrowserRouter({
+  path: "/",
+  children: [
+    {
+      path: "",
+      element: <Home />,
+    },
+  ],
+});
+```
+
+```javascript
+// components.tsx
+import { Outlet } from "react-router-dom";
+
+return (
+  <>
+    <Outlet />
+  </>
+);
+```
+
+## useOutletContext
+
+Outlet에서 보내준 context를 자식 components 에서 사용가능하다
+
+```javascript
+<Outlet context={{ authName: "chad" }} />
+```
+
+```javascript
+const ctx = useOutletContext();
+console.log(ctx);
+```
+
+## useSearchParams
+
+URL 쿼리스트링을 사용하기 편하게 해주며 해당 함수를 가지고 있는 URLSearchParams 객체
+
+```javascript
+import { useSearchParams } from "react-router-dom";
+// [value status function, set value function]
+const [searchParams, setSearchParams] = useSearchParams();
+```
+
+searchParams methods: `append, delete, entries, forEach, get, getAll, has, keys, set, size, sort, toString, values`
+
+setSearchParams: url을 변경해줌
+
+ex: https://some-domain.com?username=chad&age=20&gender=male&skill=js&skill=react
+
+### toString(key)
+
+```javascript
+searchParams.toString();
+// ?username=chad&age=20&gender=male&skill=js&skill=react
+```
+
+### searchParams.get(key)
+
+```javascript
+searchParams.get("username");
+// chad
+```
+
+### searchParams.getAll(key)
+
+```javascript
+searchParams.getAll("skill");
+// ['js', 'react']
+```
+
+### searchParams.has(key): boolean
+
+```javascript
+searchParams.has("username");
+// true
+```
+
+### searchParams.delete(key): void
+
+```javascript
+searchParams.delete("age"));
+// undefined
+searchParams.toString();
+// ?username=chad&gender=male&skill=js&skill=react
+```
+
+### searchParams.set(key, value): void
+
+```javascript
+"";
+searchParams.set("email", "combatguri92#gmail.com"); // 기존값 덮어쓰거나 추가
+searchParams.append("hi", "hello-world"); // 값 추가
+// ?username=chad&gender=male&skill=js&skill=react&email=combatguri92#gmail.com
+```
+
+### setSearchParams(searchParams)
+
+```javascript
+setSearchParams(searchParams);
+
+// https://domain?username=chad&gender=male&skill=js&skill=react&email=combatguri92#gmail.com 로 url 변경됨.
+```
+
+# Apex Chart
+
+APEX CHARTS
+현대적이고 인터랙티브한 오픈 소스 차트
+
+```
+$ npm install --save react-apexcharts apexcharts
+```
+
+- https://apexcharts.com
+- https://apexcharts.com/docs/react-charts

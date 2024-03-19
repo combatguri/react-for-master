@@ -1,3 +1,7 @@
+/**
+ * 스타일드 컴포넌트 css 스타일 적용
+ */
+
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
