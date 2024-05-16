@@ -24,6 +24,10 @@ export function getItemWithExpiry(key: string) {
     return item.value;
 }
 
+export function clearSessionStorage(): void {
+    sessionStorage.clear();
+}
+
 export function setSessionStorage(key: string, value: string | object): void {
     window.sessionStorage.setItem(`${key}`, typeof value !== 'string' ? JSON.stringify(value) : value);
 }
