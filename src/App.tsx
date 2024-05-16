@@ -8,6 +8,7 @@ import { Reset } from "./themes/globalStyle";
 // styled components @import style 하기위한
 import { Helmet } from "react-helmet-async";
 
+// 개발시 devtools 사용
 import { ReactQueryDevtools } from "react-query/devtools";
 
 // import StyledProps from "./samples/StyledProps";
