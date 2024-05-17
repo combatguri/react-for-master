@@ -1,7 +1,9 @@
-import * as coins from "./coins";
+import * as coins from './coins';
+import * as storage from './storage';
 
-const Api = {
-  coins,
+const API = {
+    coins,
+    storage
 };
 
-export default Api;
+export default API;

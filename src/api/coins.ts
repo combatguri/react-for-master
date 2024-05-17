@@ -1,8 +1,5 @@
-import * as APIS from './apis';
+import * as STORAGE from './storage';
 import { ICoin, ICoins } from '../screens/coin/Interface';
-import { rejects } from 'node:assert';
-import error from '../screens/Error';
-import { setStorageInnerItemWithExpire } from './apis';
 
 const fetchOptions = {
     method: 'GET',
@@ -36,16 +33,16 @@ export async function fetchCoinList(): Promise<ICoins[] | any> {
     const perPage = 20;
     const nowPage = 1;
 
-    const storageKey = 'coins:list';
-    const storageItem = APIS.getSessionStorage(storageKey);
+    const key = 'coins:list';
+    const storageItem = STORAGE.getStorageItemWithExpiry({ key });
     if (storageItem) {
         // return Promise.resolve(sessionCoinList);
         return storageItem;
     } else {
         const res = await fetch(`${BASE_URL.coingecko}/coins/markets?vs_currency=${currency}&per_page=${perPage}&page=${nowPage}`, fetchOptions);
-        const resJson = await res.json();
-        APIS.setSessionStorage(storageKey, resJson);
-        return APIS.getSessionStorage(storageKey);
+        const value = await res.json();
+        STORAGE.setStorageItemWithExpiry({ key, value });
+        return STORAGE.getStorageItemWithExpiry({ key });
     }
 }
 
@@ -55,15 +52,16 @@ export async function fetchCoinList(): Promise<ICoins[] | any> {
  */
 export async function fetchCoinInfo(coinId: string): Promise<ICoin | any> {
     // https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&tickers=true&market_data=false&community_data=false&developer_data=false&sparkline=false
-    const storageKey = `coin:detail`;
-    const storageItem = APIS.getStorageInnerItemWithExpire(storageKey, coinId);
+    const key = `coin:detail`;
+    const childKey = coinId;
+    const storageItem = STORAGE.getStorageInnerItemWithExpiry({ key, childKey });
     if (storageItem) {
         return storageItem;
     } else {
-        const res = await fetch(`${BASE_URL.coingecko}/coins/${coinId}`, fetchOptions);
-        const resJson = await res.json();
-        APIS.setStorageInnerItemWithExpire(storageKey, coinId, resJson);
-        return APIS.getStorageInnerItemWithExpire(storageKey, coinId);
+        const res = await fetch(`${BASE_URL.coingecko}/coins/${childKey}`, fetchOptions);
+        const value = await res.json();
+        STORAGE.setStorageInnerItemWithExpiry({ key, childKey, value });
+        return STORAGE.getStorageInnerItemWithExpiry({ key, childKey });
     }
 }
 
@@ -73,8 +71,8 @@ export async function fetchCoinInfo(coinId: string): Promise<ICoin | any> {
  * @param coinId string
  */
 export async function fetchCoinTickers(coinId: string) {
-    const storageKey = `coin:${coinId}:tickers`;
-    const storageItem = APIS.getSessionStorage(storageKey);
+    const key = `coin:${coinId}:tickers`;
+    const storageItem = STORAGE.getStorageItemWithExpiry({ key });
     const res = await fetch(`${BASE_URL.coingecko}/tickers/${coinId}`);
     return await res.json();
 }
