@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react-for-master/static/css/main.d18e6b36.css",
-    "main.js": "/react-for-master/static/js/main.9a3f64b1.js",
-    "static/media/logo.svg": "/react-for-master/static/media/logo.10869a280ce86d48f3f3803e0cff1979.svg",
+    "main.js": "/react-for-master/static/js/main.ed07b45e.js",
+    "static/media/logo.svg": "/react-for-master/static/media/logo.d9a22303a87a890f6b19dd074346bca9.svg",
     "index.html": "/react-for-master/index.html",
     "main.d18e6b36.css.map": "/react-for-master/static/css/main.d18e6b36.css.map",
-    "main.9a3f64b1.js.map": "/react-for-master/static/js/main.9a3f64b1.js.map"
+    "main.ed07b45e.js.map": "/react-for-master/static/js/main.ed07b45e.js.map"
   },
   "entrypoints": [
     "static/css/main.d18e6b36.css",
-    "static/js/main.9a3f64b1.js"
+    "static/js/main.ed07b45e.js"
   ]
 }
