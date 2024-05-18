@@ -15,6 +15,7 @@ import { HelmetProvider } from "react-helmet-async";
 
 // react query
 import { QueryClient, QueryClientProvider } from "react-query";
+import { RecoilRoot } from "recoil";
 const queryClient = new QueryClient();
 
 /*
@@ -37,11 +38,13 @@ const root = ReactDOM.createRoot(
 root.render(
   // <Reset>
   <HelmetProvider>
-    <ThemeProvider theme={theme}>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </ThemeProvider>
+    </RecoilRoot>
   </HelmetProvider>
   // </Reset>
 );

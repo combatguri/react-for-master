@@ -1,19 +1,20 @@
 import styled from "styled-components";
 
-/**
- * hex 값을 rgb 값으로 변환
- * USE: hexToRgb("#FFF")
- * @param hex
- * @return string
- */
 export function hexToRgb(hex: string) {
+  // hex 값이 #으로 시작하는 경우 # 제거
   hex = hex.replace(/^#/, "");
+
+  // hex 값을 6자리로 만들기 위해 앞에 0 붙이기
   if (hex.length === 3) {
     hex = hex.replace(/(.)/g, "$1$1");
   }
-  const r = parseInt(hex.substring(0, 2), 16);
-  const g = parseInt(hex.substring(2, 4), 16);
-  const b = parseInt(hex.substring(4, 6), 16);
+
+  // 각 색상 채널 추출
+  var r = parseInt(hex.substring(0, 2), 16);
+  var g = parseInt(hex.substring(2, 4), 16);
+  var b = parseInt(hex.substring(4, 6), 16);
+
+  // RGB 문자열 반환
   return r + ", " + g + ", " + b;
 }
 

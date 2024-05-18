@@ -5,20 +5,19 @@ import { createBrowserRouter } from "react-router-dom";
  */
 import usersRouter from "./users";
 import coinRouter from "./coin";
+import todoRouter from "./todo";
 
 /**
  * import Views
  */
 import App from "../App";
-import Home from "../screens/Home";
-import About from "../screens/About";
+import Home from "../pages/Home";
+import About from "../pages/About";
 
 /**
  * import Global Views
  */
-import NotFound from "../screens/NotFound";
-import CoinList from "../screens/coin/Coins";
-import CoinInformation from "../screens/coin/Coin";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter(
   [
@@ -39,6 +38,7 @@ const router = createBrowserRouter(
       errorElement: <NotFound />,
     },
     coinRouter,
+    todoRouter,
   ],
   { basename: process.env.PUBLIC_URL }
 );

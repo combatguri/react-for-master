@@ -1,3 +1,13 @@
+# Index
+
+- [React Router](#react-router)
+- [Apex Chart](#apex-chart)
+- [Recoil](#recoil)
+- [React Hook Form](#react-hook-form)
+  <br/>
+  <br/>
+  <br/>
+
 # [React Router](https://reactrouter.com/)
 
 - [RouterProvider](#routerprovider)
@@ -233,3 +243,57 @@ $ npm install --save react-apexcharts apexcharts
 
 - https://apexcharts.com
 - https://apexcharts.com/docs/react-charts
+
+# [Recoil](https://recoiljs.org/)
+
+- [install](#install)
+
+### Install
+
+```
+$ yarn add recoil
+```
+
+### get Atom value use on Recoil
+
+declare atom
+
+```javascript
+// in atom.ts
+export const customAtom = atom({
+  key: "custom",
+  default: true, // any type
+});
+```
+
+get value
+
+```javascript
+// in anyView.tsx
+import { useRecoilValue } from "recoil";
+
+const value = useRecoilValue(customAtom);
+console.log(value); // light
+```
+
+set value
+
+```javascript
+// in anyView.tsx
+import { useSetRecoilState } from "recoil";
+
+const setAtomFn = useSetRecoilState(customAtom);
+setAtomFn(false);
+setAtomFn((prevValue) => !prevValue);
+```
+
+# React Hook Form
+
+form 관리 라이브러리
+
+### Install
+
+```
+$ npm install react-hook-form
+$ yarn add react-hook-form
+```

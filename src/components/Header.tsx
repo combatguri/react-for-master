@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import logo from "../assets/logo.svg";
+import logo from "../media/logo.svg";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -56,10 +56,16 @@ function Header() {
             <Link to="/coin">COIN</Link>
           </li>
           <li>
+            <Link to="/todo">TODO</Link>
+          </li>
+          <li>
             <BtnSpan onClick={goToAbout}>ABOUT</BtnSpan>
           </li>
           <li>
             <Link to="/users">Users</Link>
+          </li>
+          <li>
+            <Link to="/users/join">FORM</Link>
           </li>
         </ul>
       </MenuWrapper>

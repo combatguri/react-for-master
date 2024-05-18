@@ -2,13 +2,14 @@
  * import Views
  */
 import App from "../App";
-import User from "../screens/users/User";
-import Followers from "../screens/users/Followers";
+import User from "../pages/users/User";
+import Followers from "../pages/users/Followers";
+import Form from "../pages/users/join/Form";
 
 /**
  * import Global Views
  */
-import NotFound from "../screens/NotFound";
+import NotFound from "../pages/NotFound";
 
 const usersRouter = {
   path: "/users",
@@ -34,6 +35,10 @@ const usersRouter = {
           element: <Followers />,
         },
       ],
+    },
+    {
+      path: "join",
+      element: <Form />,
     },
   ],
 };

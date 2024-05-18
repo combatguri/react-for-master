@@ -8,10 +8,10 @@
  * import Views
  */
 import App from "../App";
-import Coins from "../screens/coin/Coins";
-import Coin from "../screens/coin/Coin";
-import CoinPrice from "../screens/coin/CoinPrice";
-import CoinChart from "../screens/coin/CoinChart";
+import Coins from "../pages/coin/Coins";
+import Coin from "../pages/coin/Coin";
+import CoinPrice from "../pages/coin/CoinPrice";
+import CoinChart from "../pages/coin/CoinChart";
 
 const coinRouter = {
   path: "/coin",

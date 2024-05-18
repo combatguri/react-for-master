@@ -8,8 +8,14 @@ import { Reset } from "./themes/globalStyle";
 // styled components @import style 하기위한
 import { Helmet } from "react-helmet-async";
 
+// 화면 하단 react-query로 api 호출하는 상태를 ui로 보여줌
 // 개발시 devtools 사용
 import { ReactQueryDevtools } from "react-query/devtools";
+
+// 상태관리 Recoil
+// import { useRecoilValue } from "recoil";
+// atoms(from Recoil)에 선언된 상태 value
+// import { isUiModeAtom } from "./atoms";
 
 // import StyledProps from "./samples/StyledProps";
 // import StyledStyle from "./samples/StyledStyle";
@@ -38,6 +44,8 @@ const Wrapper = styled.div`
 `;
 
 function App() {
+  // const isUiMode = useRecoilValue(isUiModeAtom);
+
   return (
     <Wrapper>
       <Helmet>
@@ -48,7 +56,9 @@ function App() {
       </Helmet>
       <Reset />
       <Header />
+
       <Outlet context={{ authName: "chad" }} />
+
       <ReactQueryDevtools initialIsOpen={true} />
 
       {/* <Routes></Routes> */}
