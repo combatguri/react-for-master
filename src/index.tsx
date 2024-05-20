@@ -1,21 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-import { RouterProvider } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
+import { RouterProvider } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 
-import router from "./router/index";
+import router from './router/index';
 // import App from "./App";
 
-import "./index.scss";
-import { theme } from "./themes/theme";
+import './index.scss';
+import { theme } from './styles/theme';
 
 // 어떤것을 넣던 <header>안으로 들어감
-import { HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from 'react-helmet-async';
 
 // react query
-import { QueryClient, QueryClientProvider } from "react-query";
-import { RecoilRoot } from "recoil";
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { RecoilRoot } from 'recoil';
 const queryClient = new QueryClient();
 
 /*
@@ -31,20 +31,18 @@ Change To theme.ts
 //   bgColor: "#b6b6b6",
 // };
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
-  // <Reset>
-  <HelmetProvider>
-    <RecoilRoot>
-      <ThemeProvider theme={theme}>
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
-        </QueryClientProvider>
-      </ThemeProvider>
-    </RecoilRoot>
-  </HelmetProvider>
-  // </Reset>
+    // <Reset>
+    <HelmetProvider>
+        <RecoilRoot>
+            <ThemeProvider theme={theme}>
+                <QueryClientProvider client={queryClient}>
+                    <RouterProvider router={router} />
+                </QueryClientProvider>
+            </ThemeProvider>
+        </RecoilRoot>
+    </HelmetProvider>
+    // </Reset>
 );
