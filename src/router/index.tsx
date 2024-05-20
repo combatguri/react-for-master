@@ -1,46 +1,46 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
 
 /**
  * extend Router
  */
-import usersRouter from "./users";
-import coinRouter from "./coin";
-import todoRouter from "./todo";
+import usersRouter from './usersRouter';
+import coinRouter from './coinRouter';
+import todoRouter from './todoRouter';
 
 /**
  * import Views
  */
-import App from "../App";
-import Home from "../pages/Home";
-import About from "../pages/About";
+import App from '../App';
+import Home from '../pages/Home';
+import About from '../pages/About';
 
 /**
  * import Global Views
  */
-import NotFound from "../pages/NotFound";
+import NotFound from '../pages/NotFound';
 
 const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <App />,
-      children: [
+    [
         {
-          path: "",
-          element: <Home />,
+            path: '/',
+            element: <App />,
+            children: [
+                {
+                    path: '',
+                    element: <Home />
+                },
+                {
+                    path: 'about',
+                    element: <About />
+                },
+                usersRouter
+            ],
+            errorElement: <NotFound />
         },
-        {
-          path: "about",
-          element: <About />,
-        },
-        usersRouter,
-      ],
-      errorElement: <NotFound />,
-    },
-    coinRouter,
-    todoRouter,
-  ],
-  { basename: process.env.PUBLIC_URL }
+        coinRouter,
+        todoRouter
+    ],
+    { basename: process.env.PUBLIC_URL }
 );
 
 export default router;
