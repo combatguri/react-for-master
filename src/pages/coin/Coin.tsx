@@ -1,7 +1,7 @@
 import { Link, Outlet, PathMatch, useLocation, useMatch, useNavigate, useParams } from 'react-router-dom';
-import Loading from '@components/Loading';
+import Loading from '../../components/Loading';
 
-import Api from '@api';
+import Api from '../../api';
 import { useQuery } from 'react-query';
 // import { Helmet } from "react-helmet-async";
 

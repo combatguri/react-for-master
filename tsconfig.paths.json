@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
+      "*": ["src/*"],
       "@": ["src/"],
       "@api": ["src/api/index.ts"],
       "@components/*": ["src/components/*"],
