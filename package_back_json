@@ -7,13 +7,13 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
 
     "start:react": "react-scripts start",
     "build:react": "react-scripts build",
     "test:react": "react-scripts test",
-    "eject:react": "react-scripts eject",
-    "deploy": "gh-pages -d build",
-    "predeploy": "npm run build"
+    "eject:react": "react-scripts eject"
   },
   "dependencies": {
     "@craco/craco": "^7.1.0",
@@ -60,10 +60,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://combatguri.github.io/react-for-master",
-  "devDependencies": {
-    "craco": "^0.0.3",
-    "craco-alias": "^3.0.1",
-    "react-app-alias": "^2.2.2"
-  }
+  "homepage": "https://combatguri.github.io/react-for-master"
 }

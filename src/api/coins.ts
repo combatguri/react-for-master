@@ -1,5 +1,5 @@
 import * as STORAGE from './storage';
-import { ICoin, ICoins } from '../pages/coin/Interface';
+import { ICoin, ICoins } from '@pages/coin/Interface';
 
 const fetchOptions = {
     method: 'GET',

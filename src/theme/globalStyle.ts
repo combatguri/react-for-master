@@ -22,27 +22,27 @@ export const reset = css`
   ${({ theme:{colors} }) => {
     let templateLiteral = '';
     Object.keys(colors).forEach((k) => {
-      templateLiteral += `--color-${k}:${colors[k]};`;
+        templateLiteral += `--color-${k}:${colors[k]};`;
     });
     return `
       :root {
         ${templateLiteral}
       }
     `;
-  }}
+}}
 
   // set Root variable from font Theme
   ${({ theme:{font} }) => {
     let templateLiteral = '';
     Object.keys(font).forEach((k) => {
-      templateLiteral += `--font-${k}:${font[k]};`;
+        templateLiteral += `--font-${k}:${font[k]};`;
     });
     return `
       :root {
         ${templateLiteral}
       }
     `;
-  }}
+}}
 
 
   /* http://meyerweb.com/eric/tools/css/reset/

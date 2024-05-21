@@ -1,17 +1,16 @@
 import { Link, Outlet, PathMatch, useLocation, useMatch, useNavigate, useParams } from 'react-router-dom';
-import Loading from '../../components/Loading';
-
-import Api from '../../api';
+import styled from 'styled-components';
 import { useQuery } from 'react-query';
+
+import { IoCaretBack } from 'react-icons/io5';
+import { MdOutlineArrowRightAlt } from 'react-icons/md';
+
+import Api from '@/api';
+import Loading from '@components/Loading';
 // import { Helmet } from "react-helmet-async";
 
 import { ICoin, IRouteState } from './Interface';
 import { CoinDescription, CoinOverview, CoinOverviewItem, CoinTab, CoinTabs, CoinTitle } from './Style';
-import styled from 'styled-components';
-
-// icons
-import { IoCaretBack } from 'react-icons/io5';
-import { MdOutlineArrowRightAlt } from 'react-icons/md';
 
 interface ICoinRouteParams {
     [key: string]: string | undefined;

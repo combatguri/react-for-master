@@ -8,7 +8,7 @@ import router from './router/index';
 // import App from "./App";
 
 import './index.scss';
-import { theme } from './styles/theme';
+import { theme } from './theme/theme';
 
 // 어떤것을 넣던 <header>안으로 들어감
 import { HelmetProvider } from 'react-helmet-async';

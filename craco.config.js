@@ -1,22 +1,13 @@
-const path = require('path');
-// const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-
+const { CracoAliasPlugin } = require('react-app-alias');
 module.exports = {
-    // plugins: [
-    //     {
-    //         plugin: {
-    //             overrideWebpackConfig: ({ webpackConfig }) => {
-    //                 webpackConfig.resolve.plugins.push(new TsconfigPathsPlugin({}));
-    //                 return webpackConfig;
-    //             }
-    //         }
-    //     }
-    // ],
-    webpack: {
-        alias: {
-            '@': path.resolve(__dirname, 'src/'),
-            '@api': path.resolve(__dirname, 'src/api'),
-            '@components': path.resolve(__dirname, 'src/components')
+    plugins: [
+        {
+            plugin: CracoAliasPlugin,
+            options: {
+                source: 'tsconfig',
+                baseUrl: './src',
+                tsConfigPath: './tsconfig.paths.json'
+            }
         }
-    }
+    ]
 };

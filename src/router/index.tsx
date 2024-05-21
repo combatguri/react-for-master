@@ -10,14 +10,14 @@ import todoRouter from './todoRouter';
 /**
  * import Views
  */
-import App from '../App';
-import Home from '../pages/Home';
-import About from '../pages/About';
+import App from '@/App';
+import Home from '@pages/Home';
+import About from '@pages/About';
 
 /**
  * import Global Views
  */
-import NotFound from '../pages/NotFound';
+import NotFound from '@pages/NotFound';
 
 const router = createBrowserRouter(
     [

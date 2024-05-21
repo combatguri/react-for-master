@@ -1,14 +1,14 @@
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext } from 'react-router-dom';
 
 interface HomeOutletContext {
-  authName: string;
+    authName: string;
 }
 
 function Home() {
-  const ctx = useOutletContext<HomeOutletContext>();
-  console.log("ctx in Home", ctx);
+    const ctx = useOutletContext<HomeOutletContext>();
+    console.log('ctx in Home', ctx);
 
-  return <div>Home</div>;
+    return <div>Home</div>;
 }
 
 export default Home;

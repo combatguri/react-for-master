@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "paths": {
-      "*": ["src/*"],
-      "@": ["src/"],
-      "@api": ["src/api/index.ts"],
-      "@components/*": ["src/components/*"],
+      "@/*":["./*"],
+      "@api/*":["./api/*"],
+      "@assets/*":["./assets/*"],
+      "@atom/*":["./atom/*"],
+      "@components/*":["./components/*"],
+      "@pages/*":["./pages/*"],
+      "@theme/*":["./theme/*"]
     }
   }
 }

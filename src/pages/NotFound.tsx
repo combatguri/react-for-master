@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 function NotFound() {
-  return <div>NotFound 일거여요..</div>;
+    return <div>NotFound 일거여요..</div>;
 }
 
 export default NotFound;

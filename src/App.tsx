@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
 
 // global style
-import { Reset } from './styles/globalStyle';
+import { Reset } from './theme/globalStyle';
 
 // styled components @import style 하기위한
 import { Helmet } from 'react-helmet-async';

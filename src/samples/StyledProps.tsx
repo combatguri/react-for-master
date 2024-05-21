@@ -2,22 +2,22 @@
  * 스타일드 컴포넌트 ts 인터페이스 설정
  */
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface styledPropsInterface {
-  $size?: string;
-  $bgColor?: string;
-  $length?: string;
+    $size?: string;
+    $bgColor?: string;
+    $length?: string;
 }
 
 const Father = styled.div`
-  display: flex;
+    display: flex;
 `;
 
 const Box = styled.div<styledPropsInterface>`
-  width: 100px;
-  height: 100px;
-  background-color: ${(props) => props.$bgColor};
+    width: 100px;
+    height: 100px;
+    background-color: ${(props) => props.$bgColor};
 `;
 
 // const Circle = styled(Box)`
@@ -43,15 +43,15 @@ const Box = styled.div<styledPropsInterface>`
 // `;
 
 function StyledProps() {
-  return (
-    <>
-      <Father as="header">
-        <Box $bgColor="red" />
-      </Father>
+    return (
+        <>
+            <Father as="header">
+                <Box $bgColor="red" />
+            </Father>
 
-      {/* <InputAttrsProps $size="10em" /> */}
-    </>
-  );
+            {/* <InputAttrsProps $size="10em" /> */}
+        </>
+    );
 }
 
 export default StyledProps;
