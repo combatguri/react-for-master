@@ -13,11 +13,11 @@ import styled from 'styled-components';
 import { useQuery } from 'react-query';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
-import Api from '@/api';
 import Loading from '@components/Loading';
-import { isUiModeAtom } from '@/atom';
+import { isUiModeAtom } from '@/atoms';
 
-import { ICoins } from './Interface';
+import * as CoinHooks from './hooks';
+import { ICoins } from './interface';
 
 const Container = styled.div`
     display: flex;
@@ -73,7 +73,7 @@ const ImgWrapper = styled.div`
 `;
 
 function Coins() {
-    const { isLoading, data } = useQuery<ICoins[]>('allCoins', Api.coins.fetchCoinList);
+    const { isLoading, data } = useQuery<ICoins[]>('allCoins', CoinHooks.fetchCoinList);
 
     const isUiMode = useRecoilValue(isUiModeAtom);
     const setIsUiModeFn = useSetRecoilState(isUiModeAtom);

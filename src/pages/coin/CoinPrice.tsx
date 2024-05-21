@@ -3,7 +3,7 @@ import ApexChart from 'react-apexcharts';
 
 import Loading from '@components/Loading';
 
-import { ICoin, IRouteState } from './Interface';
+import { ICoin, IRouteState } from './interface';
 
 interface IRoute extends IRouteState {
     state: {

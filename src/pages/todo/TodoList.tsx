@@ -1,16 +1,9 @@
-import { useForm } from 'react-hook-form';
+import React from 'react';
 import { atom, useRecoilState } from 'recoil';
+import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
-interface IForm {
-    toDo: string;
-}
-
-interface ITodo {
-    text: string;
-    id: number;
-    category: 'TO_DO' | 'DOING' | 'DONE';
-}
+import { IForm, ITodo } from './interface/todo';
 
 const toDoState = atom<ITodo[]>({
     key: 'toDo',

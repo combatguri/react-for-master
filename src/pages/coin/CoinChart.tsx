@@ -5,7 +5,7 @@ import ApexChart from 'react-apexcharts';
 // UI
 import Loading from '@components/Loading';
 // Interface
-import { ICoin, IRouteState } from './Interface';
+import { ICoin, IRouteState } from './interface';
 // interface IOutletContext {
 //   coinId: string;
 // }

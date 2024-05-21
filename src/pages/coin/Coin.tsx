@@ -5,12 +5,12 @@ import { useQuery } from 'react-query';
 import { IoCaretBack } from 'react-icons/io5';
 import { MdOutlineArrowRightAlt } from 'react-icons/md';
 
-import Api from '@/api';
 import Loading from '@components/Loading';
 // import { Helmet } from "react-helmet-async";
 
-import { ICoin, IRouteState } from './Interface';
-import { CoinDescription, CoinOverview, CoinOverviewItem, CoinTab, CoinTabs, CoinTitle } from './Style';
+import * as CoinHooks from './hooks';
+import { ICoin, IRouteState } from './interface';
+import { CoinDescription, CoinOverview, CoinOverviewItem, CoinTab, CoinTabs, CoinTitle } from './styles';
 
 interface ICoinRouteParams {
     [key: string]: string | undefined;
@@ -68,7 +68,7 @@ function Coin() {
     const priceMatch: PathMatch<'coinId'> | null = useMatch('coin/:coinId/price');
     const chartMatch: PathMatch<'coinId'> | null = useMatch('coin/:coinId/chart');
 
-    const { isLoading, data } = useQuery<ICoin>(['info', coinId], () => Api.coins.fetchCoinInfo(coinId!));
+    const { isLoading, data } = useQuery<ICoin>(['info', coinId], () => CoinHooks.fetchCoinInfo(coinId!));
 
     const onCloseChildBox = (e: React.MouseEvent<HTMLDivElement>) => {
         e.preventDefault();
