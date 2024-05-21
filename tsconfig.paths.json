@@ -8,7 +8,8 @@
       "@atom/*":["./atom/*"],
       "@components/*":["./components/*"],
       "@pages/*":["./pages/*"],
-      "@theme/*":["./theme/*"]
+      "@theme/*":["./theme/*"],
+      "@types/*":["./types/*"]
     }
   }
 }

@@ -92,7 +92,6 @@ function Coins() {
                 </span>
                 <button onClick={toggleUiMode}>UI 모드 변경</button>
             </ImgWrapper>
-
             <CoinWrapper>
                 {isLoading ? (
                     <Loading />
